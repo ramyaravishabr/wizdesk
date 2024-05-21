@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wizdesk
+  labels:
+    app: wizdesk
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: wizdesk
+  template:
+    metadata:
+      labels:
+        app: wizdesk
+    spec:
+      containers:
+      - name: wizdesk
+        image: your-docker-username/wizdesk:latest
+        ports:
+        - containerPort: 8080
